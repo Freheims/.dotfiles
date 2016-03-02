@@ -113,3 +113,4 @@ if ! shopt -oq posix; then
 fi
 
 export PATH=$PATH:$HOME/script
+export PATH=$PATH:$HOME/Program/apache-maven-3.3.9/bin
