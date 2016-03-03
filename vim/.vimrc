@@ -17,6 +17,8 @@ call plug#begin()
 Plug 'itchyny/lightline.vim'
 Plug 'ervandew/supertab'
 Plug 'xuhdev/vim-latex-live-preview'
+Plug 'scrooloose/nerdtree'
+Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
@@ -30,3 +32,4 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
+
