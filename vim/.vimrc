@@ -1,5 +1,3 @@
-execute pathogen#infect()
-
 filetype on
 syntax on 
 colorscheme Tomorrow-Night
@@ -12,8 +10,23 @@ set hidden
 set history=100
 set hlsearch
 
-
 let mapleader=","
 
+call plug#begin()
 
+Plug 'itchyny/lightline.vim'
+Plug 'ervandew/supertab'
+Plug 'xuhdev/vim-latex-live-preview'
 
+call plug#end()
+
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"x":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
