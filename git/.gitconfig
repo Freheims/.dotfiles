@@ -1,3 +1,9 @@
 [user]
 	email = freheims@gmail.com
 	name = Fredrik Heimsæter
+[difftool]
+	prompt = false
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
