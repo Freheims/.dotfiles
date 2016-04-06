@@ -10,7 +10,20 @@ set hidden
 set history=100
 set hlsearch
 
-let mapleader=","
+let mapleader=" "
+
+noremap ø l
+noremap l k
+noremap k j
+noremap j h
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 call plug#begin()
 
