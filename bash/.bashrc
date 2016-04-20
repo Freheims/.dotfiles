@@ -91,6 +91,7 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 #alias l='ls -CF'
+alias ks='sl'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -114,3 +115,4 @@ fi
 
 export PATH=$PATH:$HOME/script
 export PATH=$PATH:$HOME/Program/apache-maven-3.3.9/bin
+export JAVA_HOME=/usr/jdk/jdk1.8.0_71
