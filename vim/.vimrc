@@ -9,6 +9,10 @@ set nocompatible
 set hidden
 set history=100
 set hlsearch
+set smartindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 let mapleader=" "
 
@@ -24,6 +28,7 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+nmap <leader>rf vapqg
 
 call plug#begin()
 
@@ -32,6 +37,7 @@ Plug 'ervandew/supertab'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'scrooloose/nerdtree'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
