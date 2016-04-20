@@ -1,3 +1,4 @@
 *.swp
 *netrwhist*
 /vim/.vim/plugged/*
+/irssi/nicklist-*
