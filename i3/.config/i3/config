@@ -1,0 +1,139 @@
+set $mod Mod4
+
+font pango: Source Code Pro, Icons, FontAwesome 9
+
+floating_modifier $mod
+
+bindsym $mod+Return exec i3-sensible-terminal
+
+
+for_window [class="Opera"] move container to workspace 1
+new_window 1pixel
+force_focus_wrapping yes
+hide_edge_borders both
+
+exec --no-startup-id dunst -config ~/.dunstrc
+exec --no-startup-id xss-lock ~/bin/lock 
+exec --no-startup-id background
+
+bindsym $mod+Shift+c kill
+
+#bindsym $mod+d exec dmenu_run -nb "#101010" -fn "Source Code Pro-11.1"
+bindsym $mod+n exec nmcli_dmenu 
+bindsym $mod+Tab exec ~/bin/rofi-run 
+bindsym $mod+d exec rofi -show run
+bindsym $mod+Shift+Control+l exec ~/bin/lock 
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+oslash focus right
+	  
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+oslash move right
+
+bindsym $mod+o split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+Control+Shift+s layout stacking
+bindsym $mod+Control+Shift+w layout tabbed
+bindsym $mod+Control+Shift+e layout toggle split
+
+bindsym $mod+Control+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+
+bindsym $mod+q workspace 6
+bindsym $mod+w workspace 7
+bindsym $mod+e workspace 8
+bindsym $mod+r workspace 9
+bindsym $mod+t workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+q move container to workspace 6
+bindsym $mod+Shift+w move container to workspace 7
+bindsym $mod+Shift+e move container to workspace 8
+bindsym $mod+Shift+r move container to workspace 9
+bindsym $mod+Shift+t move container to workspace 10
+
+workspace 1 output eDP1
+workspace 2 output eDP1
+workspace 3 output eDP1
+workspace 4 output eDP1
+workspace 5 output eDP1
+workspace 6 output VGA1
+# workspace 1 output HDMI2
+# workspace 2 output HDMI2
+# workspace 3 output HDMI2
+# workspace 4 output HDMI2
+# workspace 5 output HDMI2
+# workspace 6 output HDMI2
+# workspace 7 output HDMI1
+# workspace 8 output HDMI1
+# workspace 9 output HDMI1
+workspace 10 output HDMI1
+
+bindsym $mod+Control+j exec "i3-msg focus output left"
+bindsym $mod+Control+k exec "i3-msg focus output down"
+bindsym $mod+Control+l exec "i3-msg focus output up"
+bindsym $mod+Control+ø exec "i3-msg focus output right"
+
+bindsym $mod+Control+Shift+r restart
+bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+mode "resize" {
+	bindsym j resize shrink width 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+	bindsym l resize shrink height 10 px or 10 ppt
+	bindsym ø resize grow width 10 px or 10 ppt
+
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+Control r mode "resize"
+
+bindsym XF86AudioMute exec ~/bin/volume toggle
+bindsym XF86AudioRaiseVolume exec ~/bin/volume inc
+bindsym XF86AudioLowerVolume exec ~/bin/volume dec
+
+
+bar {
+	tray_output primary
+	position bottom
+	mode dock
+	workspace_buttons yes
+	strip_workspace_numbers yes
+	status_command i3blocks -c ~/.i3/i3blocks.conf
+
+		colors {
+			background #101010
+			statusline #605c5a
+# focused_workspace #101010 #101010 #dd9a64
+# active_workspace #F92671  #101010 #101010
+# inactive_workspace #101010 #101010 #b8b1ac
+# urgent_workspace #2e3436 #9a878f
+			separator #323131
+	}
+}

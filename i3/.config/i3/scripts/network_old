@@ -1,0 +1,53 @@
+#!/bin/sh
+
+
+wlp_state="$(cat /sys/class/net/wl*/operstate)" \
+eth_state="$(cat /sys/class/net/en*/operstate)"
+
+ssid=$(/sbin/iwgetid -r)
+
+wlp_name="$(ls /sys/class/net | grep wl)"
+eth_name="$(ls /sys/class/net | grep en)"
+
+
+if [ "$eth_state" = "up" ]; then
+        echo " $ssid"
+        echo " $ssid"
+        echo "#99CC99"
+        exit 0
+fi
+
+if [ "$eth_state" = "down" ]; then
+		if [ "$wlp_state" = "up" ]; then
+			echo " $ssid"
+			echo " $ssid"
+			echo "#99CC99"
+			exit 0
+		else
+			echo " $ssid"
+			echo " $ssid"
+			echo "#F2777A"
+			exit 0
+		fi
+fi
+
+if [ "$eth_state" = "dormant" ]; then
+        echo ""
+        echo ""
+        echo "#F99157"
+        exit 0
+fi
+if [ "$wlp_state" = "up" ]; then
+        echo " $ssid"
+        echo " $ssid"
+        echo "#99CC99"
+        exit 0
+fi
+
+if [ "$wlp_state" = "down" ]; then
+        echo " $ssid"
+        echo " $ssid"
+        echo "#F2777A"
+        exit 0
+fi
+

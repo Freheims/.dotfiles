@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Colors
+# Up
+# echo "#99CC99"
+# Dormant
+# echo "#F99157"
+# Down
+# echo "#F2777A"
+
+connected(){
+	nmcli d s | grep $1 | awk '{print $(NF-2)}'
+}
+
+get_connection(){
+	nmcli d s | grep $1 | awk '{print $--NF}'
+}
+
+
+
+for device in wlp4s0 enp5s0f1; do
+	status=$(connected $device)
+	conn=$(get_connection $device)
+	icon=""
+	if [[ $device == "wlp4s0" ]]; then
+		icon=" "
+	fi
+	if [[ $status == "connected" ]]; then
+		echo "$icon $conn"
+		echo "$icon $conn"
+		echo "#99CC99"
+		break
+	elif [[ $status == "disconnected" ]]; then
+		echo "$icon $device/"
+		echo "$icon $device/"
+		echo "#F2777A"
+		break
+	fi
+done
